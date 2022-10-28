@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: {{ include "helm_argocd.fullname" . }}
   labels:
+    stage: {{ .Values.stage}}
     {{- include "helm_argocd.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
